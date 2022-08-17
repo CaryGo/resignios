@@ -5,10 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "useBundler": true,
+            "showDebuggerOutput": true,
             "name": "Debug Local File",
             "type": "Ruby",
             "request": "launch",
-            "program": "${workspaceRoot}/lib/resignios.rb"
+            "program": "${workspaceRoot}/bin/resignios",
+            "args": ["cert"]
         }
     ]
 }

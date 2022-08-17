@@ -11,6 +11,9 @@ GEM
     ast (2.4.2)
     claide (1.1.0)
     colored2 (3.1.2)
+    debase (0.2.4.1)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.16)
     json (2.6.2)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -34,6 +37,8 @@ GEM
     rubocop-performance (1.14.3)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    ruby-debug-ide (0.7.3)
+      rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     standard (1.16.0)
       rubocop (= 1.35.0)
@@ -44,8 +49,10 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  debase
   rake (~> 13.0)
   resignios!
+  ruby-debug-ide
   standard (~> 1.3)
 
 BUNDLED WITH
