@@ -16,7 +16,7 @@ module Resign
             end
             def initialize(argv)
                 @valid = argv.flag?("valid", true)
-                @codesigning = argv.flag?("codesigning", true)
+                @codesigning = argv.flag?("codesigning", false)
                 super
             end
             def validate!

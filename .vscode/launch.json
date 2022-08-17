@@ -11,7 +11,7 @@
             "type": "Ruby",
             "request": "launch",
             "program": "${workspaceRoot}/bin/resignios",
-            "args": ["cert"]
+            // "args": ["ipa", "--help"]
         }
     ]
 }
