@@ -1,5 +1,3 @@
 #!/usr/bin/env ruby
 
-require "resignios"
-
-Resign::Command.run(ARGV)
+require 'commands_generator.rb'

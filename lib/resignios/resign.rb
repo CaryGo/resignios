@@ -22,6 +22,5 @@ module Resign
     end
 end
 
-require_relative 'command/ipa'
 require_relative 'command/cert'
 require_relative 'command/provisioning'

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "resignios"
+require "resignios/resign"
 
 Resign::Command.run(ARGV)

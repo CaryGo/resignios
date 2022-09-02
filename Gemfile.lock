@@ -4,6 +4,7 @@ PATH
     resignios (0.1.0)
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
+      commander
 
 GEM
   remote: https://rubygems.org/
@@ -11,9 +12,12 @@ GEM
     ast (2.4.2)
     claide (1.1.0)
     colored2 (3.1.2)
+    commander (4.6.0)
+      highline (~> 2.0.0)
     debase (0.2.4.1)
       debase-ruby_core_source (>= 0.10.2)
     debase-ruby_core_source (0.10.16)
+    highline (2.0.3)
     json (2.6.2)
     parallel (1.22.1)
     parser (3.1.2.1)
