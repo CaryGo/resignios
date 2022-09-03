@@ -6,13 +6,13 @@ Gem::Specification.new do |spec|
   spec.authors = ["guojiashuang"]
   spec.email = ["guojiashuang@live.com"]
 
-  spec.summary = "iOS重签名"
-  spec.description = "iOS重签名"
+  spec.summary = "iOS重签名工具"
+  spec.description = "iOS重签名工具，基于fastlane sigh命令做了些许修改"
   spec.homepage = 'https://github.com/CaryGo/resignios'
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.files = Dir["lib/**/*.rb"] + %w{ bin/resign bin/resignios README.md LICENSE.txt CHANGELOG.md }
+  spec.files = Dir["lib/**/*.{rb,sh}"] + %w{ bin/resign bin/resignios README.md LICENSE.txt CHANGELOG.md }
   spec.bindir = "bin"
   spec.executables = %w{ resign resignios }
   spec.require_paths = %w{ lib }
