@@ -55,14 +55,19 @@ module Resign
 
                 index = 0
                 Dir.glob("*.mobileprovision").each do |file|
-                    index += 1
-                    puts "#{index})".red " #{print_pp_info("Name", file)}".green
+                    name = print_pp_info("Name", file)
+                    identifier = print_pp_info("Entitlements:application-identifier", file)
+                    uuid = print_pp_info("UUID", file) || ''
+                    team_name = print_pp_info("TeamName", file) || ''
+                    create_date = print_pp_info("CreationDate", file) || ''
+                    expiration_date = print_pp_info("ExpirationDate", file) || ''
 
-                    puts "   application-identifier: ".yellow "#{print_pp_info("Entitlements:application-identifier", file)}".green
-                    puts "   UUID: ".yellow "#{print_pp_info("UUID", file) || ''}".green
-                    puts "   TeamName: ".yellow "#{print_pp_info("TeamName", file)}".green
-                    puts "   CreationDate: ".yellow "#{print_pp_info("CreationDate", file)}".green
-                    puts "   ExpirationDate: ".yellow "#{print_pp_info("ExpirationDate", file)}".green
+                    puts "#{index += 1})".red " #{name}".green
+                    puts "   application-identifier: ".yellow "#{identifier}".green
+                    puts "   UUID: ".yellow "#{uuid}".green
+                    puts "   TeamName: ".yellow "#{team_name}".green
+                    puts "   CreationDate: ".yellow "#{create_date}".green
+                    puts "   ExpirationDate: ".yellow "#{expiration_date}".green
                 end
             end
             
