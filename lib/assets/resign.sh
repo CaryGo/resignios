@@ -907,7 +907,7 @@ function resign {
 }
 
 # remove all plugins
-if  [[ -n "${USE_APP_ENTITLEMENTS}" ]]; then
+if  [[ -n "${REMOVE_PLUGINS}" ]]; then
     rm -rf "$TEMP_DIR/Payload/$APP_NAME/Plugins"
 fi
 

@@ -4,9 +4,9 @@ module Sigh
     class Resign
         def run(options, args)
             # get the command line inputs and parse those into the vars we need...
-            ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path = get_inputs(options, args)
+            ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path, output_path = get_inputs(options, args)
             # ... then invoke our programmatic interface with these vars
-            unless resign(ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path)
+            unless resign(ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path, output_path)
                 puts "Failed to re-sign .ipa".red
             end
         end
@@ -15,7 +15,7 @@ module Sigh
             File.expand_path('../../assets/resign.sh', __FILE__)
         end
 
-        def resign(ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path)
+        def resign(ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path, output_path)
             resign_path = find_resign_path
             signing_identity = find_signing_identity(signing_identity)
       
@@ -52,7 +52,7 @@ module Sigh
               remove_plugins_flag,
               verbose,
               bundle_id,
-              ipa.shellescape,
+              output_path || ipa.shellescape,
               specific_keychain
             ].join(' ')
       
@@ -138,12 +138,13 @@ module Sigh
             use_app_entitlements = options.use_app_entitlements || nil
             remove_plugins = options.remove_plugins || true
             keychain_path = options.keychain_path || nil
-      
+            output_path = options.output_path || self.input('Output path to ipa file: ')
+            
             if options.provisioning_name
               puts "The provisioning_name (-n) option is not applicable to resign. You should use provisioning_profile (-p) instead".yellow
             end
       
-            return ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path
+            return ipa, signing_identity, provisioning_profiles, entitlements, version, display_name, short_version, bundle_version, new_bundle_id, use_app_entitlements, remove_plugins, keychain_path, output_path
         end
 
         def ask_for_signing_identity

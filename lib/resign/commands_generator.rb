@@ -34,6 +34,7 @@ module Sigh
       c.option '-g', '--new_bundle_id STRING', String, 'New application bundle ID (CFBundleIdentifier)'
       c.option '-r', '--remove_plugins', 'Remove new Application plugins'
       c.option '--keychain_path STRING', String, 'Path to the keychain that /usr/bin/codesign should use'
+      c.option '-o', '--output_path STRING', String, 'Output IPA Path.'
       c.action do |args, options|
         Sigh::Resign.new.run(options, args)
       end
