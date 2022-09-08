@@ -136,9 +136,9 @@ module Sigh
             bundle_version = options.bundle_version || nil
             new_bundle_id = options.new_bundle_id || nil
             use_app_entitlements = options.use_app_entitlements || nil
-            remove_plugins = options.remove_plugins || true
+            remove_plugins = options.remove_plugins || (options.provisioning_profile.nil? ? true : false)
             keychain_path = options.keychain_path || nil
-            output_path = options.output_path || self.input('Output path to ipa file: ')
+            output_path = options.output_path || ask_for_output_ipa_path
             
             if options.provisioning_name
               puts "The provisioning_name (-n) option is not applicable to resign. You should use provisioning_profile (-p) instead".yellow
@@ -148,15 +148,6 @@ module Sigh
         end
 
         def ask_for_signing_identity
-            print_available_identities
-            self.input('Signing Identity: ')
-        end
-
-        def print_available_identities
-            puts "Available identities: \n\t#{installed_identity_descriptions.join("\n\t")}\n"
-        end
-
-        def installed_identity_descriptions
             descriptions = []
             installed_identities.group_by { |sha1, name| name }.each do |name, identities|
               descriptions << name
@@ -165,7 +156,8 @@ module Sigh
                 "\t#{sha1}"
               end
             end
-            descriptions
+            puts "Available identities: \n\t#{descriptions.join("\n\t")}\n"
+            self.input('Signing Identity: ')
         end
 
         # Hash of available signing identities
@@ -183,6 +175,15 @@ module Sigh
             end
     
             ids
+        end
+
+        def ask_for_output_ipa_path
+            output_path = self.input('Output path to ipa file: ')
+            unless output_path.end_with?('.ipa')
+                puts "Output path to ipa file error.".yellow
+                return nil
+            end
+            output_path
         end
 
         def input(message)

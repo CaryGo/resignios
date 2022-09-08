@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 
-require 'resign/commands_generator.rb'
-
-Sigh::CommandsGenerator.start
+resign_path = File.expand_path('../../lib/assets/resign.sh', __FILE__)
+`#{resign_path}`

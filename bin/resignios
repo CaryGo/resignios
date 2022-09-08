@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'resign/commands_generator.rb'
+
+Sigh::CommandsGenerator.start

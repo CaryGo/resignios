@@ -13,12 +13,12 @@ module Sigh
   end
 
   def run
-    program :name, 'resign'
+    program :name, 'resignios'
     program :version, Resignios::VERSION
-    program :description, 'resign ios tool.'
+    program :description, 'ios resign tool.'
 
-    command :ios do |c|
-      c.syntax = 'resign ios'
+    command :ipa do |c|
+      c.syntax = 'resignios ipa'
       c.description = 'Resigns an existing ipa file with the given provisioning profile'
       c.option '-i', '--signing_identity STRING', String, 'The signing identity to use. Must match the one defined in the provisioning profile.'
       c.option '-x', '--version_number STRING', String, 'Version number to force binary and all nested binaries to use. Changes both CFBundleShortVersionString and CFBundleIdentifier.'
@@ -32,7 +32,7 @@ module Sigh
       c.option '--bundle_version STRING', String, 'Bundle version to force binary and all nested binaries to use (CFBundleVersion).'
       c.option '--use_app_entitlements', 'Extract app bundle codesigning entitlements and combine with entitlements from new provisionin profile.'
       c.option '-g', '--new_bundle_id STRING', String, 'New application bundle ID (CFBundleIdentifier)'
-      c.option '-r', '--remove_plugins', 'Remove new Application plugins'
+      c.option '--remove_plugins', 'Remove new Application plugins'
       c.option '--keychain_path STRING', String, 'Path to the keychain that /usr/bin/codesign should use'
       c.option '-o', '--output_path STRING', String, 'Output IPA Path.'
       c.action do |args, options|
@@ -40,7 +40,7 @@ module Sigh
       end
     end
   
-    default_command :ios
+    default_command :ipa
   end
 
   def multiple_values_option_proc(command, name)
