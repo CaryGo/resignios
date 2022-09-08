@@ -1,10 +1,11 @@
 PATH
   remote: .
   specs:
-    resignios (0.1.0)
+    resignios (0.1.1)
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
       commander
+      shellwords
 
 GEM
   remote: https://rubygems.org/
@@ -44,6 +45,7 @@ GEM
     ruby-debug-ide (0.7.3)
       rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
+    shellwords (0.1.0)
     standard (1.16.0)
       rubocop (= 1.35.0)
       rubocop-performance (= 1.14.3)

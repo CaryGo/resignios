@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require "sign/sign"
-
-Sign::Command.run(ARGV)

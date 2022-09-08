@@ -14,10 +14,11 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["lib/**/*.{rb,sh}", "bin/*"] + %w{ README.md LICENSE.txt CHANGELOG.md }
   spec.bindir = "bin"
-  spec.executables = %w{ resign sign resignios }
+  spec.executables = %w{ resigntool resign resignios }
   spec.require_paths = %w{ lib }
 
   spec.add_runtime_dependency 'claide',         '>= 1.0.2', '< 2.0'
   spec.add_runtime_dependency 'colored2',       '~> 3.1'
   spec.add_runtime_dependency 'commander'
+  spec.add_runtime_dependency 'shellwords'
 end

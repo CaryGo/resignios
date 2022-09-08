@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "tool/resigntool"
+
+ResignTool::Command.run(ARGV)

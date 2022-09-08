@@ -1,5 +1,5 @@
 
-module Sign
+module ResignTool
     class Command
         class Cert < Command
             self.summary = "列出本机安装的所有证书信息"
