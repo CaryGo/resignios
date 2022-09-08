@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'commander/import'
-require 'version'
 
+require 'colored2'
+require 'version'
+require_relative 'resign'
 
 module Sigh
   class CommandsGenerator
@@ -30,11 +32,10 @@ module Sigh
       c.option '--bundle_version STRING', String, 'Bundle version to force binary and all nested binaries to use (CFBundleVersion).'
       c.option '--use_app_entitlements', 'Extract app bundle codesigning entitlements and combine with entitlements from new provisionin profile.'
       c.option '-g', '--new_bundle_id STRING', String, 'New application bundle ID (CFBundleIdentifier)'
-      c.option '-r', '--remove-plugins STRING', String, 'Remove new Application plugins'
+      c.option '-r', '--remove_plugins', 'Remove new Application plugins'
       c.option '--keychain_path STRING', String, 'Path to the keychain that /usr/bin/codesign should use'
       c.action do |args, options|
-        # Sigh::Resign.new.run(options, args)
-        puts "AAA"
+        Sigh::Resign.new.run(options, args)
       end
     end
   
