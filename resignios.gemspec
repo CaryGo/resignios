@@ -3,10 +3,10 @@ require_relative "lib/version"
 Gem::Specification.new do |spec|
   spec.name = "resignios"
   spec.version = Resignios::VERSION
-  spec.authors = ["guojiashuang"]
+  spec.authors = ["Cary"]
   spec.email = ["guojiashuang@live.com"]
 
-  spec.summary = "iOS重签名工具"
+  spec.summary = "iOS重签名工具，基于fastlane sigh命令做了些许修改"
   spec.description = "iOS重签名工具，基于fastlane sigh命令做了些许修改"
   spec.homepage = 'https://github.com/CaryGo/resignios'
   spec.license = "MIT"
