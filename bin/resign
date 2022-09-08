@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "resign/resign"
+require 'resign/commands_generator.rb'
 
-Resign::Command.run(ARGV)
+Sigh::CommandsGenerator.start

@@ -1,4 +1,4 @@
-module Resign
+module Sign
     class Command
         class Provisioning < Command
             self.summary = '展示和清除本机安装的描述文件'

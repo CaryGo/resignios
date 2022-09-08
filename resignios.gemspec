@@ -12,9 +12,9 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.files = Dir["lib/**/*.{rb,sh}"] + %w{ bin/resign bin/resignios README.md LICENSE.txt CHANGELOG.md }
+  spec.files = Dir["lib/**/*.{rb,sh}"] + %w{ bin/resign bin/sign README.md LICENSE.txt CHANGELOG.md }
   spec.bindir = "bin"
-  spec.executables = %w{ resign resignios }
+  spec.executables = %w{ resign sign }
   spec.require_paths = %w{ lib }
 
   spec.add_runtime_dependency 'claide',         '>= 1.0.2', '< 2.0'
