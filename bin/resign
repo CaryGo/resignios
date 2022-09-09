@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
 resign_path = File.expand_path('../../lib/assets/resign.sh', __FILE__)
-`#{resign_path}`
+argv = ARGV.join(' ')
+`#{resign_path} #{argv}`
