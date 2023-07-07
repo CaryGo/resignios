@@ -9,6 +9,7 @@ module ResignTool
             ]
             def self.options
                 [
+                    ["--system", "输出系统安装描述文件的路径"],
                     ["--list", "列出本机安装的所有描述文件"],
                     ["--clean", "清除本机已安装的所有描述文件"]
                 ]
@@ -17,6 +18,7 @@ module ResignTool
             def initialize(argv)
                 @list = argv.flag?("list", true)
                 @clean = argv.flag?("clean", false)
+                @ask_path = argv.flag?("system", false)
 
                 @profile_path = argv.shift_argument || "~/Library/MobileDevice/Provisioning\ Profiles/"
                 super
@@ -27,6 +29,11 @@ module ResignTool
             end
   
             def run
+                if @ask_path
+                    puts "#{@profile_path}"
+                    return
+                end
+
                 @profile_path = File.expand_path(@profile_path)
                 if !File.exist?(@profile_path)
                     puts "没有找到`mobile provision`的安装路径, #{@profile_path}"
