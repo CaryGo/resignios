@@ -31,3 +31,4 @@ end
 
 require_relative 'command/cert'
 require_relative 'command/provisioning'
+require_relative 'command/entitlements'
